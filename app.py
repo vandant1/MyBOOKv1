@@ -112,7 +112,7 @@ def projects_section():
         {
             "title": "Trackitall",
             "description": "The Smart Inventory Management System, for the maintainenance store of 'Vaccum Interrupter' for ABB India Ltd",
-            "image": "C:\\2k25\\MyBooKv1\\static\\images\\Screenshot 2024-12-02 150657.png",
+            "image": "C:\\Users\\Hp\\OneDrive\\Pictures\\Screenshots\\Screenshot 2024-12-02 150657.png",
             "github": "https://github.com/vandant1/ABBMSM.git",
             "Recap": "https://github.com/vandant1/ABBMSM"
         },
