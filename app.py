@@ -54,7 +54,7 @@ def hero_section():
             """
             <div class="hero-content">
                 <h1>Hello, I'm<br>a Machine Learning Engineer!</h1>
-                <p class="hero-text">I build scalable web applications and bring ideas to life through Data.</p>
+                <p class="hero-text">I am a passionate Machine Learning & AI Developer dedicated to crafting intelligent, scalable, and high-impact solutions that drive innovation and efficiency. From predicting diseases to securing digital assets, automating industrial workflows, and enhancing real-time analytics, I leverage cutting-edge AI/ML technologies to turn raw data into actionable intelligence. With expertise in deep learning, computer vision, NLP, predictive analytics, and full-stack AI integration, I thrive on solving real-world challenges using a blend of scientific rigor, engineering precision, and creative problem-solving. My projects span multiple industries, from healthcare and fintech to industrial automation and cybersecurity, showcasing my ability to adapt, innovate, and deliver.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn primary-btn">Get in Touch</a>
                     <a href="#projects" class="btn secondary-btn">View Projects</a>
@@ -65,13 +65,13 @@ def hero_section():
         )
     
     with col2:
-        render_lottie("https://assets2.lottiefiles.com/packages/lf20_iorpbol0.json")
+        render_lottie("https://assets8.lottiefiles.com/packages/lf20_6g9n2l8w.json")
 
 # Skills Section
 def skills_section():
     st.markdown('<div class="section-title" id="skills">Skill-Set</div>', unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4, col5 = st.columns(5)
     
     skills_data = [
         {
@@ -81,18 +81,29 @@ def skills_section():
         },
         {
             "icon": "code",
-            "title": "ML Models Development",
+            "title": "Web Development",
             "description": "Building scalable applications with modern technologies."
         },
         {
             "icon": "database",
             "title": "Database Design",
             "description": "Designing and implementing efficient database solutions."
+        },
+        {
+            "icon": "brain",
+            "title": "AI/ML",
+            "description":"Developing the robust and high accuracy Machine learning Models."
+        },
+        {
+            "icon": "chart-line",
+            "title": "Data Science",
+            "description": "Feature Engineering in Datasets and extracting insights from data."
+
         }
     ]
     
     for idx, skill in enumerate(skills_data):
-        with [col1, col2, col3][idx]:
+        with [col1, col2, col3, col4, col5][idx]:
             st.markdown(
                 f"""
                 <div class="skill-card">
