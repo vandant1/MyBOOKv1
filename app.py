@@ -19,10 +19,12 @@ def load_css(file_name):
 
 load_css('style.css')
 
-# Custom Components
 def render_lottie(url):
-    animation = f'<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="{url}" background="transparent" speed="1" loop autoplay></lottie-player>'
-    components.html(animation, height=300)
+    lottie_html = f"""
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <dotlottie-player src="{url}" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+    """
+    components.html(lottie_html, height=350)
 
 def local_css(file_name):
     with open(file_name) as f:
@@ -54,7 +56,7 @@ def hero_section():
             """
             <div class="hero-content">
                 <h1>Hello, I'm<br>a Machine Learning Engineer!</h1>
-                <p class="hero-text">I am a passionate Machine Learning & AI Developer dedicated to crafting intelligent, scalable, and high-impact solutions that drive innovation and efficiency. From predicting diseases to securing digital assets, automating industrial workflows, and enhancing real-time analytics, I leverage cutting-edge AI/ML technologies to turn raw data into actionable intelligence. With expertise in deep learning, computer vision, NLP, predictive analytics, and full-stack AI integration, I thrive on solving real-world challenges using a blend of scientific rigor, engineering precision, and creative problem-solving. My projects span multiple industries, from healthcare and fintech to industrial automation and cybersecurity, showcasing my ability to adapt, innovate, and deliver.</p>
+                <p class="hero-text">I am a passionate Machine Learning & AI Developer focused on creating scalable solutions that drive innovation. With expertise in deep learning, computer vision, NLP, and predictive analytics, I turn raw data into actionable insights. I work across industries like healthcare, fintech, and industrial automation to solve real-world challenges with precision and creativity.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn primary-btn">Get in Touch</a>
                     <a href="#projects" class="btn secondary-btn">View Projects</a>
@@ -65,7 +67,8 @@ def hero_section():
         )
     
     with col2:
-        render_lottie("https://assets8.lottiefiles.com/packages/lf20_6g9n2l8w.json")
+        render_lottie("https://lottie.host/e3061e9c-1d25-4378-a237-d0410520e91e/vNtYDa3wzV.lottie")
+
 
 # Skills Section
 def skills_section():
