@@ -427,3 +427,43 @@
   }
 }
 
+.about-content {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  text-align: left;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  color: #93DD8C;
+  margin-bottom: 1rem;
+}
+
+.about-text {
+  color: #f3f4f6;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about-list li {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-bottom: 0.75rem;
+}
+
+.about-list a {
+  color: #93DD8C;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-list a:hover {
+  text-decoration: underline;
+}

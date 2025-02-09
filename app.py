@@ -123,12 +123,27 @@ def projects_section():
     st.markdown('<div class="section-title" id="projects">Featured Projects</div>', unsafe_allow_html=True)
     
     projects_data = [
+        {    "title": "Disease Breakout Diagnosis",
+            "description": "Predicting Disease Outbreaks Using Machine Learning!",
+            "image": "C:\\2k25\\MyBooKv1\\images\\Screenshot 2025-02-09 131757.png",
+            "github": "https://github.com/vandant1/Disease-Breakout-Diagnosis",
+            "Web": "https://disease-diagnosis-at-finger-tip.streamlit.app/"
+        },
+
         {
             "title": "Trackitall",
-            "description": "The Smart Inventory Management System, for the maintainenance store of 'Vaccum Interrupter' for ABB India Ltd",
-            "image": "C:\\Users\\Hp\\OneDrive\\Pictures\\Screenshots\\Screenshot 2024-12-02 150657.png",
+            "description": "The Smart Inventory Management System, for the maintenance store of 'Vacuum Interrupter' for ABB India Ltd",
+            "image": "C:\\2k25\\MyBooKv1\\images\\TrackItAll Home page.png",
             "github": "https://github.com/vandant1/ABBMSM.git",
-            "Recap": "https://github.com/vandant1/ABBMSM"
+            "Web": "https://github.com/vandant1/ABBMSM"
+        },
+
+        {
+            "title": "Data-Cleaning and Visualization",
+            "description": "Data Cleaning and Visualization Tool 📊 A Streamlit-based app for uploading CSV files, cleaning data, and creating visualizations. Features include real-time previews, scatter plots, and histograms. Built with Pandas, Seaborn, and Matplotlib, its perfect for quick insights and interactive data exploration.",
+            "image": "C:\\2k25\\MyBooKv1\\images\\Screenshot 2025-02-09 153504.png",
+            "github": "https://github.com/vandant1/Data-Cleaning-and-visualization-tool",
+            "Web": "https://data-cleaning-and-visualization-tool.streamlit.app/"
         },
         # Add more projects here
     ]
@@ -146,7 +161,7 @@ def projects_section():
                             <a href="{project['github']}" target="_blank" class="btn github-btn">
                                 <i class="fab fa-github"></i> View Code
                             </a>
-                            <a href="{project['Recap']}" target="_blank" class="btn demo-btn">
+                            <a href="{project['Web']}" target="_blank" class="btn demo-btn">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                         </div>
@@ -191,9 +206,42 @@ def contact_section():
             st.text_area("Message")
             st.form_submit_button("Send Message")
 
+# Personal Details Section
+def personal_details_section():
+    st.markdown('<div class="section-title" id="about">About Me</div>', unsafe_allow_html=True)
+
+    col1, col2 = st.columns([1, 2])
+
+    with col1:
+        st.image("C:\\2k25\\MyBooKv1\\images\\Vandan ABB1.jpg", width=250, use_container_width=True)
+
+    with col2:
+        st.markdown(
+            """
+            <div class="about-content">
+                <h2>Vandan Tarade</h2>
+                <p class="about-text">
+                    I'm a passionate Machine Learning Engineer with expertise in deep learning, data science, and software development.
+                    My goal is to build intelligent solutions that solve real-world problems efficiently.
+                </p>
+                <ul class="about-list">
+                    <li><strong>📍 Location:</strong> Maharashtra, India</li>
+                    <li><strong>🎓 Education:</strong> B.E in Electronics and Telecommunication</li>
+                    <li><strong>💼 Experience:</strong> AI & ML Internship at TechSaksham</li>
+                    <li><strong>📧 Email:</strong> taradevandan@gmail.com</li>
+                    <li><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/mr-vandan/" target="_blank">LinkedIn Profile</a></li>
+                    <li><strong>🌐 Portfolio:</strong> <a href="https://mybook.streamlit.app/" target="_blank">My Portfolio</a></li>
+                </ul>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
 def main():
     create_nav()
     hero_section()
+    personal_details_section()
     skills_section()
     projects_section()
     contact_section()
