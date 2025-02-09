@@ -127,7 +127,7 @@ def projects_section():
     projects_data = [
         {    "title": "Disease Breakout Diagnosis",
             "description": "Predicting Disease Outbreaks Using Machine Learning!",
-            "image": "C:\\2k25\\MyBooKv1\\images\\Screenshot 2025-02-09 131757.png",
+            "image": "images/Screenshot 2025-02-09 131757.png",
             "github": "https://github.com/vandant1/Disease-Breakout-Diagnosis",
             "Web": "https://disease-diagnosis-at-finger-tip.streamlit.app/"
         },
@@ -135,7 +135,7 @@ def projects_section():
         {
             "title": "Trackitall",
             "description": "The Smart Inventory Management System, for the maintenance store of 'Vacuum Interrupter' for ABB India Ltd",
-            "image": "C:\\2k25\\MyBooKv1\\images\\TrackItAll Home page.png",
+            "image": "images/Screenshot 2024-12-02 150657.png",
             "github": "https://github.com/vandant1/ABBMSM.git",
             "Web": "https://github.com/vandant1/ABBMSM"
         },
@@ -143,7 +143,7 @@ def projects_section():
         {
             "title": "Data-Cleaning and Visualization",
             "description": "Data Cleaning and Visualization Tool 📊 A Streamlit-based app for uploading CSV files, cleaning data, and creating visualizations. Features include real-time previews, scatter plots, and histograms. Built with Pandas, Seaborn, and Matplotlib, its perfect for quick insights and interactive data exploration.",
-            "image": "C:\\2k25\\MyBooKv1\\images\\Screenshot 2025-02-09 153504.png",
+            "image": "images/Screenshot 2025-02-09 153504.png",
             "github": "https://github.com/vandant1/Data-Cleaning-and-visualization-tool",
             "Web": "https://data-cleaning-and-visualization-tool.streamlit.app/"
         },
