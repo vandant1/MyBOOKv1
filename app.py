@@ -3,6 +3,8 @@ import streamlit.components.v1 as components
 from PIL import Image
 import base64
 from pathlib import Path
+import smtplib
+from email.message import EmailMessage
 
 # Page Configuration
 st.set_page_config(
@@ -149,40 +151,45 @@ def projects_section():
     ]
     
     for project in projects_data:
-        with st.container():
+     with st.container():
+        col1, col2 = st.columns([1, 2])  # Left: Image | Right: Details
+        
+        with col1:
+            st.image(project["image"], caption=project["title"], width=450)  # Compact image size
+        
+        with col2:
             st.markdown(
                 f"""
-                <div class="project-card">
-                    <img src="{project['image']}" alt="{project['title']}" class="project-image">
-                    <div class="project-content">
-                        <h3>{project['title']}</h3>
-                        <p>{project['description']}</p>
-                        <div class="project-links">
-                            <a href="{project['github']}" target="_blank" class="btn github-btn">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                            <a href="{project['Web']}" target="_blank" class="btn demo-btn">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
+                <div class="project-content">
+                    <h3>{project['title']}</h3>
+                    <p>{project['description']}</p>
+                    <div class="project-links">
+                        <a href="{project['github']}" target="_blank" class="btn github-btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="{project['Web']}" target="_blank" class="btn demo-btn">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
                     </div>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
 
+
+
 # Contact Section
 def contact_section():
     st.markdown('<div class="section-title" id="contact">Connect with me</div>', unsafe_allow_html=True)
-    
+
     col1, col2 = st.columns([1, 1])
-    
+
     with col1:
         st.markdown(
             """
             <div class="contact-info">
                 <h3>Let's work together</h3>
-                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+                <p>Feel free to reach out for collaborations or just a friendly hello.</p>
                 <div class="social-links">
                     <a href="https://github.com/vandant1" target="_blank" class="social-icon">
                         <i class="fab fa-github"></i>
@@ -190,7 +197,7 @@ def contact_section():
                     <a href="https://www.linkedin.com/in/mr-vandan/" target="_blank" class="social-icon">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="taradevandan@gmail.com" class="social-icon">
+                    <a href="mailto:taradevandan@gmail.com" class="social-icon">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
@@ -198,13 +205,11 @@ def contact_section():
             """,
             unsafe_allow_html=True
         )
-    
+
     with col2:
-        with st.form("contact_form"):
-            st.text_input("Name")
-            st.text_input("Email")
-            st.text_area("Message")
-            st.form_submit_button("Send Message")
+        google_form_url = "https://docs.google.com/forms/d/18zMIcFpQAWWGXqlLXMrnDoI4fqf_dMh6lRXytMs0Yq0/viewform?edit_requested=true"
+        st.markdown(f'<iframe src="{google_form_url}" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>', unsafe_allow_html=True)
+
 
 # Personal Details Section
 def personal_details_section():

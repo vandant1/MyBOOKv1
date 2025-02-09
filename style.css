@@ -467,3 +467,45 @@
 .about-list a:hover {
   text-decoration: underline;
 }
+
+
+
+
+
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.project-links a {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.github-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.github-btn:hover {
+  background: #45a049;
+}
+
+.demo-btn {
+  background: #ffffff;
+  color: rgb(205, 244, 245);
+}
+
+.demo-btn:hover {
+  background: #ffffff;
+}
