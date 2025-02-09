@@ -218,7 +218,7 @@ def personal_details_section():
     col1, col2 = st.columns([1, 2])
 
     with col1:
-        st.image("C:\\2k25\\MyBooKv1\\images\\Vandan ABB2.jpg", width=250, use_container_width=True)
+        st.image("images/Vandan ABB1.jpg", width=250, use_container_width=True)
 
 
     with col2:
