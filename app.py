@@ -213,7 +213,8 @@ def personal_details_section():
     col1, col2 = st.columns([1, 2])
 
     with col1:
-        st.image("C:\\2k25\\MyBooKv1\\images\\Vandan ABB1.jpg", width=250, use_column_width=True)
+        st.image("https://github.com/vandant1/MyBOOKv1/blob/main/images/Vandan%20ABB1.jpg", width=250, use_container_width=True)
+
 
     with col2:
         st.markdown(
