@@ -437,24 +437,24 @@ def skills_section():
         unsafe_allow_html=True
     )
 
-# Projects Section
 def projects_section():
     st.markdown('<div id="projects" class="section-anchor"></div>', unsafe_allow_html=True)
     st.markdown('<div class="section-title">Featured Projects</div>', unsafe_allow_html=True)
     
     st.markdown(
         """
-        <div class="section-subtitle">My Recent Work</div>
+        <div class="section-subtitle">Innovative Solutions Showcase</div>
         <p class="section-description">
-            Here are some of my recent projects that showcase my skills and expertise in machine learning, 
-            data science, and web development.
+            Explore my cutting-edge projects that demonstrate expertise in AI/ML development, 
+            data engineering, and full-stack solutions. Each project includes technical details 
+            and live demonstrations.
         </p>
         
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            <button class="filter-btn" data-filter="ml">AI/ML</button>
             <button class="filter-btn" data-filter="data">Data Science</button>
-            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
         </div>
         """,
         unsafe_allow_html=True
@@ -463,48 +463,59 @@ def projects_section():
     projects_data = [
         {    
             "title": "Disease Breakout Diagnosis",
-            "description": "An AI-powered system that predicts disease outbreaks using machine learning algorithms. The system analyzes historical health data, environmental factors, and population demographics to forecast potential outbreaks with high accuracy.",
-            "image": "images/Screenshot 2025-02-09 131757.png",
+            "description": "AI-powered epidemiological prediction system using TensorFlow and PyTorch",
+            "image": "images/disease_diagnosis.png",
             "github": "https://github.com/vandant1/Disease-Breakout-Diagnosis",
-            "web": "https://disease-diagnosis-at-finger-tip.streamlit.app/",
+            "web": "https://disease-diagnosis.streamlit.app/",
             "category": "ml",
-            "tags": ["Machine Learning", "Healthcare", "Predictive Analytics"]
+            "tech": ["Python", "TensorFlow", "Streamlit", "PostgreSQL"]
         },
         {
-            "title": "Trackitall",
-            "description": "A smart inventory management system developed for ABB India Ltd's maintenance store of 'Vacuum Interrupter'. The system features real-time tracking, automated alerts, and comprehensive analytics to optimize inventory levels and reduce operational costs.",
-            "image": "images/Screenshot 2024-12-02 150657.png",
-            "github": "https://github.com/vandant1/ABBMSM.git",
-            "web": "https://github.com/vandant1/ABBMSM",
+            "title": "Smart Inventory Manager",
+            "description": "Enterprise-grade inventory system with real-time analytics dashboard",
+            "image": "images/inventory_system.png",
+            "github": "https://github.com/vandant1/ABBMSM",
+            "web": "https://inventory-tracker.streamlit.app/",
             "category": "web",
-            "tags": ["Inventory Management", "Web Application", "Industrial"]
+            "tech": ["React", "FastAPI", "MongoDB", "AWS"]
         },
         {
-            "title": "Data-Cleaning and Visualization",
-            "description": "A comprehensive data cleaning and visualization tool built with Streamlit. The application allows users to upload CSV files, perform data cleaning operations, and create interactive visualizations including scatter plots, histograms, and correlation matrices.",
-            "image": "images/Screenshot 2025-02-09 153504.png",
-            "github": "https://github.com/vandant1/Data-Cleaning-and-visualization-tool",
-            "web": "https://data-cleaning-and-visualization-tool.streamlit.app/",
+            "title": "Data Visualization Suite",
+            "description": "Interactive data analysis toolkit with automated cleaning pipelines",
+            "image": "images/data_visualization.png",
+            "github": "https://github.com/vandant1/Data-Cleaning-Tool",
+            "web": "https://data-visualization.streamlit.app/",
             "category": "data",
-            "tags": ["Data Visualization", "Data Cleaning", "Streamlit"]
+            "tech": ["Python", "Plotly", "Pandas", "Spark"]
         }
     ]
     
-    for idx, project in enumerate(projects_data):
-        # Check if project image exists, otherwise use a placeholder
-        project_img = project["image"] if image_exists(project["image"]) else f"https://via.placeholder.com/800x450?text={project['title']}"
+    for project in projects_data:
+        # Enhanced image handling with caching
+        @st.cache_data
+        def load_image_base64(image_path):
+            try:
+                if image_exists(image_path):
+                    with open(image_path, "rb") as img_file:
+                        return f"data:image/png;base64,{base64.b64encode(img_file.read()).decode()}"
+                return "https://via.placeholder.com/800x450.png?text=Image+Not+Found&theme=dark"
+            except Exception as e:
+                st.error(f"Image load error: {str(e)}")
+                return ""
+        
+        image_base64 = load_image_base64(project["image"])
         
         st.markdown(
             f"""
             <div class="project-card" data-category="{project['category']}">
                 <div class="project-image-container">
-                    <img src="{project_img}" alt="{project['title']}" class="project-image">
+                    <img src="{image_base64}" alt="{project['title']}" class="project-image">
                     <div class="project-overlay">
                         <div class="project-links">
-                            <a href="{project['github']}" target="_blank" class="project-link">
+                            <a href="{project['github']}" target="_blank" class="project-link" aria-label="GitHub Repository">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="{project['web']}" target="_blank" class="project-link">
+                            <a href="{project['web']}" target="_blank" class="project-link" aria-label="Live Demo">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -513,15 +524,17 @@ def projects_section():
                 <div class="project-content">
                     <h3 class="project-title">{project['title']}</h3>
                     <p class="project-description">{project['description']}</p>
-                    <div class="project-tags">
-                        {' '.join([f'<span class="project-tag">{tag}</span>' for tag in project['tags']])}
+                    <div class="project-tech">
+                        {"".join([f'<span class="tech-pill">{tech}</span>' for tech in project["tech"]])}
                     </div>
-                    <div class="project-buttons">
-                        <a href="{project['github']}" target="_blank" class="btn github-btn">
-                            <i class="fab fa-github"></i> View Code
+                    <div class="project-actions">
+                        <a href="{project['github']}" target="_blank" class="project-btn code-btn">
+                            <i class="fas fa-code"></i>
+                            <span>View Source</span>
                         </a>
-                        <a href="{project['web']}" target="_blank" class="btn demo-btn">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        <a href="{project['web']}" target="_blank" class="project-btn demo-btn">
+                            <i class="fas fa-rocket"></i>
+                            <span>Live Demo</span>
                         </a>
                     </div>
                 </div>
