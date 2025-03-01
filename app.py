@@ -121,6 +121,7 @@ def hero_section():
         render_lottie("https://lottie.host/e3061e9c-1d25-4378-a237-d0410520e91e/vNtYDa3wzV.lottie", height=400)
 
 # Personal Details Section
+# Update your personal_details_section function with this code
 def personal_details_section():
     st.markdown('<div id="about" class="section-anchor"></div>', unsafe_allow_html=True)
     st.markdown('<div class="section-title">About Me</div>', unsafe_allow_html=True)
@@ -128,8 +129,24 @@ def personal_details_section():
     col1, col2 = st.columns([1, 2])
 
     with col1:
-        # Check if profile image exists, otherwise use a placeholder
-        profile_img = "C://2k25//MyBooKv1//images//Vandan ABB1.jpg" if image_exists("images/Vandan ABB1.png") else "C:\\2k25\\MyBooKv1\\images\\Vandan ABB1.png"
+        # Image handling with base64 encoding
+        def img_to_base64(image_path):
+            try:
+                with open(image_path, "rb") as image_file:
+                    encoded_string = base64.b64encode(image_file.read()).decode()
+                return f"data:image/png;base64,{encoded_string}"
+            except Exception as e:
+                st.error(f"Error loading image: {str(e)}")
+                return ""
+        
+        # Use relative path and check both extensions
+        image_path = None
+        if image_exists("images/Vandan ABB1.png"):
+            image_path = "images/Vandan ABB1.png"
+        elif image_exists("images/Vandan ABB1.jpg"):
+            image_path = "images/Vandan ABB1.jpg"
+        
+        profile_img = img_to_base64(image_path) if image_path else ""
         
         st.markdown(
             f"""
@@ -139,15 +156,7 @@ def personal_details_section():
                     <div class="profile-overlay"></div>
                 </div>
                 <div class="profile-social">
-                    <a href="https://github.com/vandant1" target="_blank" class="profile-social-icon">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mr-vandan/" target="_blank" class="profile-social-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:taradevandan@gmail.com" class="profile-social-icon">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <!-- Keep social links unchanged -->
                 </div>
             </div>
             """,
