@@ -463,12 +463,12 @@ def projects_section():
     projects_data = [
         {    
             "title": "Disease Breakout Diagnosis",
-            "description": "AI-powered epidemiological prediction system using TensorFlow and PyTorch",
+            "description": "AI-powered epidemiological prediction system using Streamlit, pandas and numpy",
             "image": "images/disease_diagnosis.png",
             "github": "https://github.com/vandant1/Disease-Breakout-Diagnosis",
             "web": "https://disease-diagnosis.streamlit.app/",
             "category": "ml",
-            "tech": ["Python", "TensorFlow", "Streamlit", "PostgreSQL"]
+            "tech": ["Python", "Numpy", "Streamlit", "Pandas"]
         },
         {
             "title": "Smart Inventory Manager",
@@ -477,7 +477,7 @@ def projects_section():
             "github": "https://github.com/vandant1/ABBMSM",
             "web": "https://inventory-tracker.streamlit.app/",
             "category": "web",
-            "tech": ["React", "FastAPI", "MongoDB", "AWS"]
+            "tech": ["Flask", "HTML & CSS", "MySQL", "Aiven clouds"]
         },
         {
             "title": "Data Visualization Suite",
